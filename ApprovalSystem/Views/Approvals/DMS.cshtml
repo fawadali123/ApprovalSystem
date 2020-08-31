@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ApprovalSystem.Models.Approval>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Documents Repository</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.ApprovalType.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.CreatedOn)</td>
+                <td><a target="_blank" href="@item.FilePath"><i class="fa fa-eye"></i></a></td>                
+            </tr>
+        }
+    </tbody>
+</table>

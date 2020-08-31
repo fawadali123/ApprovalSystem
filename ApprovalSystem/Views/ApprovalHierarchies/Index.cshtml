@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ApprovalSystem.Models.ApprovalHierarchy>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Approval Hierarchies</h1>
+<p class="float-lg-right">
+    <a asp-action="Create" class="btn btn-primary">Create</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Is Active</th>
+            <th>Approval Type</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.CheckBoxFor(modelItem => item.IsActive.Value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprovalType.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i></a> |
+                <a asp-action="Create" asp-controller="ApprovalHierarchyDetails" asp-route-approvalHierarchyId="@item.Id"><i class="fa fa-plus-circle"></i></a> |
+                <a asp-action="Index" asp-controller="ApprovalHierarchyDetails" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

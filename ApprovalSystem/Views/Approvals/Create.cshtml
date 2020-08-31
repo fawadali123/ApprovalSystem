@@ -1,0 +1,57 @@
+﻿@model ApprovalSystem.Models.Approval
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1> Create Approval</h1>
+<hr />
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form asp-action="Create" asp-controller="Approvals" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ApprovalTypeId" class="control-label">Type</label>
+                <select asp-for="ApprovalTypeId" class="form-control" asp-items="ViewBag.ApprovalTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label">Title</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Description</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none;">
+                <label asp-for="AssignedTo" class="control-label">Assigned To</label>
+                <input asp-for="AssignedTo" class="form-control" />
+                <span asp-validation-for="AssignedTo" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none;">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <select asp-for="CreatedBy" class="form-control" asp-items="ViewBag.CreatedBy"></select>
+            </div>
+            <div class="form-group" style="display:none;">
+                <label asp-for="UpdateBy" class="control-label"></label>
+                <select asp-for="UpdateBy" class="form-control" asp-items="ViewBag.UpdateBy"></select>
+            </div>
+            <div class="form-group">
+                <input type="file" name="file" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save & Submit" class="btn btn-info btn-block col-md-8 offset-md-2" />
+                
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary btn-block col-md-8 offset-md-2">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

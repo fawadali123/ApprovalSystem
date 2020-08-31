@@ -1,0 +1,66 @@
+﻿@model ApprovalSystem.Models.Approval
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Approval Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Approval Type
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ApprovalType.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Title
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            Assigned To
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssignedToNavigation.UserName)
+        </dd>
+        <dt class="col-sm-2">
+            Created By
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreatedByNavigation.UserName)
+        </dd>
+        <dt class="col-sm-2">
+            Created On
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+        <dt class="col-sm-2">
+            Approval Status
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ApprovalStatus.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Comments History
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CommentsHistory)
+        </dd>
+
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ApprovalSystem.Models.Approval>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>My Approvals</h1>
+
+<p class="float-lg-right">
+    <a asp-action="Create" class="btn btn-primary" >Create Approval</a>
+</p>
+<table class="table table-responsive table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Assigned To</th>
+            <th>Created On</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Title)</td>
+            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+            <td>@Html.DisplayFor(modelItem => item.ApprovalType.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.ApprovalStatus.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.AssignedToNavigation.UserName)</td>
+         <td>@Html.DisplayFor(modelItem => item.CreatedOn)</td>
+         <td>
+            <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i></a>|
+             <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-info"></i></a> |
+             <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>|
+             <a asp-action="Index" asp-controller="ApprovalDetails" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a>
+         </td>
+        </tr>
+}
+    </tbody>
+</table>

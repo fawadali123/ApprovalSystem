@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ApprovalSystem.Models.ApprovalDetail>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Approval Status</h1>
+
+@if (Model != null)
+{
+    <h3 class="float-md-left" style="border:3px solid black;background-color:bisque"> @Model.FirstOrDefault().Approval.Title</h3>
+}
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sequence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApprovalDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApprovalStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sequence)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApprovalDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApprovalStatus.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

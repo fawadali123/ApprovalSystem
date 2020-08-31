@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>aspnet-ApprovalSystem-D92D6887-EDED-4DC4-AF7A-EF3498706210</UserSecretsId>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Docs\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="Views\ApprovalDetails\Create.cshtml" />
+    <None Include="Views\ApprovalDetails\Delete.cshtml" />
+    <None Include="Views\ApprovalDetails\Details.cshtml" />
+    <None Include="Views\ApprovalDetails\Edit.cshtml" />
+    <None Include="Views\ApprovalDetails\Index.cshtml" />
+    <None Include="Views\ApprovalHierarchies\Create.cshtml" />
+    <None Include="Views\ApprovalHierarchies\Delete.cshtml" />
+    <None Include="Views\ApprovalHierarchies\Details.cshtml" />
+    <None Include="Views\ApprovalHierarchies\Edit.cshtml" />
+    <None Include="Views\ApprovalHierarchies\Index.cshtml" />
+    <None Include="Views\ApprovalHierarchyDetails\Create.cshtml" />
+    <None Include="Views\ApprovalHierarchyDetails\Delete.cshtml" />
+    <None Include="Views\ApprovalHierarchyDetails\Details.cshtml" />
+    <None Include="Views\ApprovalHierarchyDetails\Edit.cshtml" />
+    <None Include="Views\ApprovalHierarchyDetails\Index.cshtml" />
+    <None Include="Views\Approvals\Create.cshtml" />
+    <None Include="Views\Approvals\Delete.cshtml" />
+    <None Include="Views\Approvals\Details.cshtml" />
+    <None Include="Views\Approvals\Edit.cshtml" />
+    <None Include="Views\Approvals\Index.cshtml" />
+  </ItemGroup>
+
+</Project>
